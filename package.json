@@ -1,0 +1,15 @@
+{
+  "name": "usdm-price-subgraph",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --product hosted-service johnnykramer/usdm-prices"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.22.1",
+    "@graphprotocol/graph-ts": "0.22.1",
+    "assemblyscript-json": "^1.1.0",
+    "near-sdk-as": "^3.2.3"
+  }
+}

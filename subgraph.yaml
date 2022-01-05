@@ -1,0 +1,26 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: USDM3CRV
+    network: mainnet
+    source:
+      address: '0x5B3b5DF2BF2B6543f78e053bD91C4Bdd820929f1'
+      startBlock: 13140489
+      abi: USDM3CRV
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Price
+      abis:
+        - name: USDM3CRV
+          file: ./abis/USDM3CRV.json
+      callHandlers:
+        - function: exchange_underlying(int128,int128,uint256,uint256)
+          handler: handleExchangeUnderlying
+        - function: exchange_underlying(int128,int128,uint256,uint256,address)
+          handler: handleExchangeUnderlying1
+      file: ./src/price.ts
